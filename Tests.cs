@@ -11,4 +11,15 @@ static string[] FilterStringsByLength(string[] array, int maxLength)
 
     string[] result = new string[count];
     int index = 0;
+    
+    foreach (string str in array)
+    {
+        if (str.Length <= maxLength)
+        {
+            result[index] = str;
+            index++;
+        }
+    }
+
+    return result;
 }
