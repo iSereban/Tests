@@ -6,7 +6,7 @@
 
 1. Создать репозиторий на GitHub
 2. Нарисовать блок-схему алгоритма (можно обойтись блок-схемой основной содержательной части, если вы выделяете её в отдельный метод)
-3. Снабдить репозиторий оформленным текстовым описанием решения (файл README.md)
+3. Мы находимся сейчас в README.md.
 4. Написать программу, решающую поставленную задачу
 5. Использовать контроль версий в работе над этим небольшим проектом (не должно быть так, что всё залито одним коммитом, как минимум этапы 2, 3, и 4 должны быть расположены в разных коммитах)
 
@@ -18,6 +18,10 @@
 [“Russia”, “Denmark”, “Kazan”] → []
 using System;
 
+Решение
+Вы находитесь в созданном репозитории (https://github.com/iSereban/Tests.git).
+Блок-схема алгоритма: представлена в файле diagram_tests.png
+4. Решение задачи:
 Создание и заполнение массива строк
 Вызов функции для формирования нового массива
 Вывод исходного массива и результата
@@ -25,4 +29,51 @@ using System;
 Подсчет количества строк, удовлетворяющих условию
 Создание нового массива
 Заполнение нового массива
-     
+class Test
+{
+    static void Main()
+    {
+        Console.WriteLine("Введите количество слов");
+        int count = Convert.ToInt32(Console.ReadLine());
+
+        string[] arrayString = new string[count];
+        for (int i = 0; i < count; i++)
+        {
+            Console.WriteLine("Введите слово");
+            arrayString[i] = Console.ReadLine();
+
+        }
+
+        string[] resultArray = FilterStringsByLength(arrayString, 3);
+
+        Console.WriteLine($"[{string.Join(", ", arrayString)}] -> [{string.Join(", ", resultArray)}]");
+    }
+
+    static string[] FilterStringsByLength(string[] array, int maxLength)
+    {
+        int count = 0;
+        foreach (string str in array)
+        {
+            if (str.Length <= maxLength)
+            {
+                count++;
+            }
+        }
+
+        string[] result = new string[count];
+        int index = 0;
+
+        foreach (string str in array)
+        {
+            if (str.Length <= maxLength)
+            {
+                result[index] = str;
+                index++;
+            }
+        }
+
+        return result;
+    }
+}
+
+5. Использовать контроль версий в работе - использовано много раз.

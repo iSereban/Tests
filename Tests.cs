@@ -1,4 +1,4 @@
-class Program
+class Test
 {
     static void Main()
     {
@@ -19,27 +19,28 @@ class Program
     }
 
     static string[] FilterStringsByLength(string[] array, int maxLength)
-{
-    int count = 0;
-    foreach (string str in array)
     {
-        if (str.Length <= maxLength)
+        int count = 0;
+        foreach (string str in array)
         {
-            count++;
+            if (str.Length <= maxLength)
+            {
+                count++;
+            }
         }
-    }
 
-    string[] result = new string[count];
-    int index = 0;
-    
-    foreach (string str in array)
-    {
-        if (str.Length <= maxLength)
+        string[] result = new string[count];
+        int index = 0;
+
+        foreach (string str in array)
         {
-            result[index] = str;
-            index++;
+            if (str.Length <= maxLength)
+            {
+                result[index] = str;
+                index++;
+            }
         }
-    }
 
-    return result;
+        return result;
+    }
 }
